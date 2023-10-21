@@ -14,14 +14,29 @@ body {
     .container {
         position: relative;
         background: #2f363e;
-        min-height: 500px;
+        // min-height: 500px;
+        border-radius: 20px;
+        border-top-right-radius: 225px;
+        border-top-left-radius: 225px;
+        box-shadow: 25px 25px 75px rgba(0,0,0,.75),
+                    10px 10px 70px rgba(0,0,0,.25),
+                    inset 5px 5px 10px rgba(0,0,0,.5),
+                    inset 5px 5px 20px rgba(255,255,255,.2),
+                    inset -5px -5px 15px rgba(0,0,0,.75);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         .clock{
             position: relative;
             width: 450px;
             height: 450px;
             background: #2f363e;
             border-radius: 50%;
-            box-shadow: 10px 50px 70px rgba(0,0,0,.25), inset 5px 5px 10px rgba(0,0,0,.5), inset 5px 5px 20px rgba(0,0,0,.2), -5px -5px 15px rgba(0,0,0,.75) ;
+            box-shadow: 10px 50px 70px rgba(0,0,0,.25),
+                        inset 5px 5px 10px rgba(0,0,0,.5),
+                        inset 5px 5px 20px rgba(255,255,255,.2),
+                        inset -5px 15px rgba(0,0,0,.75) ;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -34,6 +49,7 @@ body {
                 background: #2f363e;
                 border: 3px solid #fff;
                 border-radius: 50%;
+                z-index: 100000;
             }
             span {
                 position: absolute;
@@ -55,14 +71,82 @@ body {
                 height: 300px;
                 border: 2px solid rgba(0,0,0,.25);
                 border-radius: 50%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                z-index: 10;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: -8.5px;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background: var(--clr);
+                    box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+                }
+                i {
+                    position: absolute;
+                    width: 6px;
+                    height: 50%;
+                    background: var(--clr);
+                    opacity: .5;
+                    transform-origin: bottom;
+                    transform: scaleY(0.5);
+                    &:nth-child(1) i {
+                        width: 2px;
+                    }
+                    &:nth-child(2) i {
+                        width: 6px;
+                    }
+                }
             }
             .circle-2 {
                 width: 240px;
                 height: 240px;
+                z-index: 9;
             }
             .circle-3 {
-                width: 180x;
+                width: 180px;
                 height: 180px;
+                z-index: 8;
+            }
+        }
+        //Digital clock
+        #time {
+            margin-bottom: 40px;
+            display: flex;
+            padding: 10px 20px;
+            font-size: 2em;
+            font-weight: 600;
+            border: 2px solid rgba(0,0,0,.5);
+            border-radius: 40px;
+            box-shadow: 5px 5px 10px rgba(0,0,0,.5),
+                        inset 5px 5px 20px rgba(255, 255, 255,.2),
+                        inset -5px -5px 15px rgba(0,0,0,.75);
+            div {
+                position: relative;
+                width: 60px;
+                text-align: center;
+                font-weight: 500;
+                color: var(--clr);
+                &:nth-child(1)::after{
+                    content: ':';
+                    position: absolute;
+                    right: -4px;
+                }
+                &:nth-child(2)::after{
+                    content: ':';
+                    position: absolute;
+                    right: -4px;
+                }
+                &:last-child {
+                    font-size: .5em;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                }
             }
         }
     }

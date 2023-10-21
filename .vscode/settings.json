@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "Default Dark+",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "security.workspace.trust.untrustedFiles": "open",
     "liveSassCompile.settings.formats": [
         {
